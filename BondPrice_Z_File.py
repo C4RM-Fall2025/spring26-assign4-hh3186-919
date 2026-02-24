@@ -1,6 +1,6 @@
 def getBondPrice_Z(face, couponRate, times, yc):
     pvcfsum = 0
-cf = couponRate * face
+    cf = couponRate * face
 for times, ycz in zip(times,yc): #changed for Zipping
     pV = (1 + ycZ) **-timesZ #changed for Zipping
     pvcf = pv*cf
