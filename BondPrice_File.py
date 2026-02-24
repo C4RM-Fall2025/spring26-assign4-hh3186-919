@@ -1,6 +1,6 @@
 
 
- def getBondPrice(y, face, couponRate, m, ppy=1):
+def getBondPrice(y, face, couponRate, m, ppy=1):
     m_eff = m * ppy
     couponRate_eff = couponRate / ppy
     y_eff = y / ppy
@@ -16,5 +16,5 @@
 
         pvcfsum += cf * pvm
     
-    return pvcfsum
+ return pvcfsum
         
