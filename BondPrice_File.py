@@ -1,10 +1,20 @@
-def getBondPrice(y, face, couponRate, m, ppy=1):
-    r = y / ppy
-    n = int(m * ppy)
-    c = face * couponRate / ppy
 
-    price = 0.0
-    for t in range(1, n + 1):
-        price += c / ((1 + r) ** t)
-        price += face / ((1 + r) ** n)
-    return price
+
+ def getBondPrice(y, face, couponRate, m, ppy=1):
+    m_eff = m * ppy
+    couponRate_eff = couponRate / ppy
+    y_eff = y / ppy
+
+    pvcfsum = 0
+    
+    for t in range(1, m_eff+1):
+        pvm = (1+y_eff) ** (-t)
+
+        cf = face * couponRate_eff
+        if t == m_eff:
+            cf += face
+
+        pvcfsum += cf * pvm
+    
+    return pvcfsum
+        
