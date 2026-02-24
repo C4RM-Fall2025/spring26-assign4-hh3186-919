@@ -1,10 +1,14 @@
 def getBondPrice_Z(face, couponRate, times, yc):
-    pvcfsum = 0
-    cf = couponRate * face
-for times, ycz in zip(times,yc): #changed for Zipping
-    pV = (1 + ycZ) **-timesZ #changed for Zipping
-    pvcf = pv*cf
-    #pvcfsum = pvcfsum + pvcf
-    pvcfsum += pvcf
-bondprice = pvcfsum + pv*face
-return (bondprice)
+    coupon = face * couponRate
+    bondPrice = 0.0
+
+    last_i = len(times) - 1
+
+    for i, (t, y) in enumerate(zip(times, yc)):
+        cf = coupon
+        if i == last_i:
+            cf = coupon + face
+        pv = 1 / ((1 + y) ** t)
+        bondPrice += cf * pv
+    return bondPrice
+    
