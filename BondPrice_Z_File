@@ -1,16 +1,10 @@
 def getBondPrice_Z(face, couponRate, times, yc):
-    coupon = face * couponRate
-    bondPrice = 0
-
-    m = len(times)
-
-    for t, y in zip(times, yc):
-        cf = coupon
-        if t == times[m - 1]:
-            cf = cf + face
-
-        pvm = 1 / ((1 + y) ** t)
-        pvcf = cf * pvm
-        bondPrice = bondPrice + pvcf
-
-    return bondPrice
+    pvcfsum = 0
+cf = couponRate * face
+for times, ycz in zip(times,yc): #changed for Zipping
+    pV = (1 + ycZ) **-timesZ #changed for Zipping
+    pvcf = pv*cf
+    #pvcfsum = pvcfsum + pvcf
+    pvcfsum += pvcf
+bondprice = pvcfsum + pv*face
+return (bondprice)
