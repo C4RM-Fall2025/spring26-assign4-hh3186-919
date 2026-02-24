@@ -1,10 +1,8 @@
-def getBondPrice(y, face, couponRate, m, ppy = 1):
-  pvcfsum = 0
-cf = couponRate * face
-for t in range (1, (ppy *m) +1):
-  pv = (1 + y/ppy) ** (-t)
-  pvcf = pv*cf/ppy
-  #pvcfsum = pvcfsum + pvcf
-  pvcfsum += pvcf
-bondprice = pvcfsum + pv*face
-return (bondprice)
+
+def getBondPrice(y, face, couponRate, m, ppy=1):
+    coupon = face * couponRate / ppy
+    price = 0
+    for t in range(1, m * ppy + 1):
+        price += coupon / (1 + y/ppy) ** t
+    price += face / (1 + y/ppy) ** (m * ppy)
+    return round(price)
