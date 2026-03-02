@@ -1,5 +1,6 @@
+
 def getBondPrice_E(face, couponRate, yc):
-    coupon = face * couponRate
+    coupon = face*couponRate
     bondPrice = 0
     m = len(yc)
     for i, y in enumerate(yc):
